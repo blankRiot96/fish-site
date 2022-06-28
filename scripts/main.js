@@ -3,13 +3,17 @@ let images = document.querySelectorAll("img");
 
 let fighterImage;
 
-for (var i = images.length; i--;) {
-    var img = images[i];
-    if (img.getAttribute("class") == "fighter-fish") {
-        fighterImage = img;
-        break;
+function getElementByClass(elements, name) {
+    for (var i = elements.length; i--;) {
+        var element = elements[i];
+        if (element.getAttribute("class") == name) {
+            return element;
+        }
     }
 }
+
+fighterImage = getElementByClass(images, "fighter-fish");
+// fighterImage = document.getElementByClass("fighter-fish");
 
 let fighterImages = [
     "fighter_fish", 
@@ -62,3 +66,29 @@ changeUserButton.addEventListener("click", () => {
     setUserName();
 });
 
+
+// Submit button handling
+buttons = document.querySelectorAll("button");
+let submitButton = getElementByClass(buttons, "submit-button");
+let lastUserOpinion = document.getElementById("last-opinion");
+const userOpinion = document.querySelector("input");
+
+if (localStorage.getItem(userName) != "") {
+    console.log(localStorage.getItem(userName));
+    lastUserOpinion.textContent = "Your last opinion on this was: " + userOpinion.value;
+} else {
+    lastUserOpinion.textContent = "";
+}
+
+submitButton.addEventListener("click", () => {
+    if (!userOpinion.value) {
+        return
+    }
+
+    event.preventDefault();
+    localStorage.setItem(userName, userOpinion.value);
+    lastUserOpinion.textContent = "Your last opinion on this was: " + userOpinion.value;
+
+    userOpinion.value = "";
+    alert("Your message was submitted!");
+});

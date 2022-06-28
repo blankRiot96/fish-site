@@ -1,5 +1,5 @@
 html {
-    background-color: #000942;
+    background-color: #000317;
 }
 
 
@@ -55,3 +55,29 @@ h3 {
     font-size: 19px;
 }
 
+
+button {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 10px 10px;
+    border-radius: 3px;
+    background-color: aqua;
+}
+
+button:hover {
+    background-color: #17a6b3;
+}
+
+.submit-button {
+    background-color: springgreen;
+    padding: 5px 25px;
+    display: block;
+    margin: 0 auto;
+}
+
+input {
+    width: 400px;
+    background-color: grey;
+    border-radius: 3px;
+    padding: 5px 25px;
+}
