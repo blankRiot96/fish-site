@@ -49,7 +49,7 @@ function setUserName() {
         userMessage.textContent = "";
     } else {
         localStorage.setItem("user-name", userName);
-        userMessage.textContent = "(Welcom to the site " + userName + "!)";
+        userMessage.textContent = "(Welcome to the site " + userName + "!)";
     }
 }
 
